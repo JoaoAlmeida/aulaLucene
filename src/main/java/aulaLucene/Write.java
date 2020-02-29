@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.document.Document;
 
-public class LuceneWriteIndexExample {
+public class Write {
 	 
     public static void main(String[] args) throws Exception 
     {
