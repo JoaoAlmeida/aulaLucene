@@ -1,7 +1,6 @@
 package textFiles;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.apache.lucene.analysis.Analyzer;
@@ -15,18 +14,14 @@ import org.apache.lucene.store.FSDirectory;
 public class WriteFiles {
 
 	public static void main(String[] args) {
-		// Input folder
-		String docsPath = "./files";
 
 		// Output folder
 		String indexPath = "./indexedFiles";
 
-		// Input Path Variable
-		final Path docDir = Paths.get(docsPath);
-
 		FilesIndex index = new FilesIndex();
 
 		try {
+
 			// org.apache.lucene.store.Directory instance
 			Directory dir = FSDirectory.open(Paths.get(indexPath));
 
@@ -41,9 +36,11 @@ public class WriteFiles {
 			IndexWriter writer = new IndexWriter(dir, iwc);
 
 			// Its recursive method to iterate all files and directories
-			index.indexDocs(writer, docDir);
+			index.indexDocs(writer);
 
 			writer.close();
+			
+			System.out.println("Files indexed successfully!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
