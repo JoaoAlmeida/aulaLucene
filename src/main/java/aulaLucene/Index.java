@@ -23,7 +23,7 @@ import org.apache.lucene.store.FSDirectory;
 public class Index {
 
 	// Index directory file path
-	private static final String INDEX_DIR = "D:\\Documents\\GitHub\\aulaLucene\\index";
+	private static final String INDEX_DIR = "./index";
 
 	// Configure and create the object that writes information in the index
 	public IndexWriter createWriter() throws IOException, URISyntaxException {
