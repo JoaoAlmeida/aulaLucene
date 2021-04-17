@@ -1,7 +1,6 @@
 package textFiles;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,14 +29,14 @@ import org.apache.lucene.store.FSDirectory;
 public class FilesIndex {
 
 	// Input folder
-			String docsPath = "./files";
+	String docsPath = "./files";
 
-			// Output folder
-			String indexPath = "./indexedFiles";
+	// Output folder
+	String indexPath = "./indexedFiles";
 
-			// Input Path Variable
-			final Path docDir = Paths.get(docsPath);
-			
+	// Input Path Variable
+	final Path docDir = Paths.get(docsPath);
+
 	public void indexDocs(final IndexWriter writer) throws IOException {
 
 		// Directory?
@@ -64,7 +63,6 @@ public class FilesIndex {
 	public void indexDoc(IndexWriter writer, Path file, long lastModified) throws IOException {
 
 		try {
-			InputStream stream = Files.newInputStream(file);
 
 			// Create lucene Document
 			Document doc = new Document();
@@ -82,27 +80,25 @@ public class FilesIndex {
 			ioe.printStackTrace();
 		}
 	}
-	
-    public TopDocs searchInContent(String textToFind, IndexSearcher searcher) throws Exception
-    {
-        //Create search query
-        QueryParser qp = new QueryParser("contents", new StandardAnalyzer());
-        Query query = qp.parse(textToFind);
-         
-        //search the index
-        TopDocs hits = searcher.search(query, 10);
-        return hits;
-    }
- 
-    public IndexSearcher createSearcher() throws IOException 
-    {
-        Directory dir = FSDirectory.open(Paths.get(indexPath));
-         
-        //It is an interface for accessing a point-in-time view of a lucene index
-        IndexReader reader = DirectoryReader.open(dir);
-         
-        //Index searcher
-        IndexSearcher searcher = new IndexSearcher(reader);
-        return searcher;
-    }
+
+	public TopDocs searchInContent(String textToFind, IndexSearcher searcher) throws Exception {
+		// Create search query
+		QueryParser qp = new QueryParser("contents", new StandardAnalyzer());
+		Query query = qp.parse(textToFind);
+
+		// search the index
+		TopDocs hits = searcher.search(query, 10);
+		return hits;
+	}
+
+	public IndexSearcher createSearcher() throws IOException {
+		Directory dir = FSDirectory.open(Paths.get(indexPath));
+
+		// It is an interface for accessing a point-in-time view of a lucene index
+		IndexReader reader = DirectoryReader.open(dir);
+
+		// Index searcher
+		IndexSearcher searcher = new IndexSearcher(reader);
+		return searcher;
+	}
 }

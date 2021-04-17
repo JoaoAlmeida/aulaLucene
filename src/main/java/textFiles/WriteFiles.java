@@ -39,7 +39,7 @@ public class WriteFiles {
 			index.indexDocs(writer);
 
 			writer.close();
-			
+
 			System.out.println("Files indexed successfully!");
 		} catch (IOException e) {
 			e.printStackTrace();
