@@ -2,10 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>aulaLucene</groupId>
   <artifactId>aulaLucene</artifactId>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Aula - Lucene</name>
+  <name>Aula - Lucene</name>      
+
   <properties>
-    <lucene.version>8.4.1</lucene.version>
+    <lucene.version>8.8.2</lucene.version>
+	<maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
 <dependencies>
 	<dependency>
