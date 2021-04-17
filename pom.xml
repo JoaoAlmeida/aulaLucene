@@ -6,11 +6,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Aula - Lucene</name>      
 
-  <properties>
-    <lucene.version>8.8.2</lucene.version>
+<properties>
+	<lucene.version>8.8.2</lucene.version>
 	<maven.compiler.source>1.8</maven.compiler.source>
-     <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.target>1.8</maven.compiler.target>
 </properties>
+
 <dependencies>
 	<dependency>
 	    <groupId>org.apache.lucene</groupId>
